@@ -221,11 +221,89 @@
         </div>
       </section>
 
-      <!-- TRACK panel + footer inserted in next task -->
+      <!-- ---------- TRACK ---------- -->
+      <section data-panel="track" hidden style="padding-top:8px;max-width:840px;margin:0 auto;">
+        <div style="text-align:center;margin-bottom:30px;">
+          <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#8a6d4f;margin-bottom:10px;">Track</div>
+          <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:38px;line-height:1.05;margin:0 0 8px;color:#1f3326;">Where's my booking?</h2>
+          <p style="font-size:16px;color:#6b6553;margin:0;">Enter your reference to see your trip status in real time.</p>
+        </div>
+        <div style="display:flex;gap:12px;background:#fbfaf6;border:1px solid #e3ddcd;border-radius:16px;padding:16px;margin-bottom:26px;flex-wrap:wrap;">
+          <input class="inp" value="GT-2048" style="flex:1;min-width:160px;border:1px solid #ddd6c5;border-radius:11px;padding:13px 15px;background:#fff;font-size:15px;color:#23291f;letter-spacing:.04em;">
+          <input class="inp" placeholder="Email on booking" style="flex:1.4;min-width:200px;border:1px solid #ddd6c5;border-radius:11px;padding:13px 15px;background:#fff;font-size:15px;color:#23291f;">
+          <button class="btn-green" style="background:#2f4a32;color:#f4f1ea;font-size:15px;font-weight:500;padding:13px 26px;border-radius:11px;">Track</button>
+        </div>
+
+        <div style="background:#fbfaf6;border:1px solid #e3ddcd;border-radius:18px;padding:30px 32px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;border-bottom:1px solid #ece6d7;padding-bottom:22px;margin-bottom:26px;">
+            <div>
+              <div style="font-family:'Newsreader',serif;font-size:24px;color:#1f3326;">Gua Tempurung Entry · <span data-bind="trackTickets">2</span> tickets</div>
+              <div style="font-size:14px;color:#8a6d4f;margin-top:3px;">Ref <span data-bind="trackRef">GT-2048</span> · <span data-bind="trackDate">Saturday, July 11</span></div>
+            </div>
+            <span style="display:inline-flex;align-items:center;gap:7px;background:#dfe9da;color:#2f4a32;border:1px solid #bcd3b1;font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;"><span style="width:7px;height:7px;border-radius:50%;background:#2f4a32;"></span>Confirmed</span>
+          </div>
+
+          <div style="display:flex;align-items:flex-start;margin-bottom:30px;">
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;">
+              <div style="display:flex;align-items:center;width:100%;"><div style="flex:1;height:2px;background:transparent;"></div><div style="width:34px;height:34px;border-radius:50%;background:#2f4a32;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;flex-shrink:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div style="flex:1;height:2px;background:#2f4a32;"></div></div>
+              <div style="font-size:12.5px;color:#23291f;margin-top:10px;text-align:center;">Booked</div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;">
+              <div style="display:flex;align-items:center;width:100%;"><div style="flex:1;height:2px;background:#2f4a32;"></div><div style="width:34px;height:34px;border-radius:50%;background:#bf6b3a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;flex-shrink:0;">2</div><div style="flex:1;height:2px;background:#e0d9c8;"></div></div>
+              <div style="font-size:12.5px;color:#23291f;margin-top:10px;text-align:center;">Confirmed</div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;">
+              <div style="display:flex;align-items:center;width:100%;"><div style="flex:1;height:2px;background:#e0d9c8;"></div><div style="width:34px;height:34px;border-radius:50%;background:#e0d9c8;color:#9a9382;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;flex-shrink:0;">3</div><div style="flex:1;height:2px;background:#e0d9c8;"></div></div>
+              <div style="font-size:12.5px;color:#9a9382;margin-top:10px;text-align:center;">Ready to check in</div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;">
+              <div style="display:flex;align-items:center;width:100%;"><div style="flex:1;height:2px;background:#e0d9c8;"></div><div style="width:34px;height:34px;border-radius:50%;background:#e0d9c8;color:#9a9382;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;flex-shrink:0;">4</div><div style="flex:1;height:2px;background:#e0d9c8;"></div></div>
+              <div style="font-size:12.5px;color:#9a9382;margin-top:10px;text-align:center;">Checked in</div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;">
+              <div style="display:flex;align-items:center;width:100%;"><div style="flex:1;height:2px;background:#e0d9c8;"></div><div style="width:34px;height:34px;border-radius:50%;background:#e0d9c8;color:#9a9382;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;flex-shrink:0;">5</div><div style="flex:1;height:2px;background:transparent;"></div></div>
+              <div style="font-size:12.5px;color:#9a9382;margin-top:10px;text-align:center;">Completed</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+            <div style="background:#fff;border:1px solid #ece6d7;border-radius:13px;padding:17px;"><div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#9a9382;margin-bottom:7px;">Visit date</div><div data-bind="trackDate" style="font-size:15px;color:#23291f;">Saturday, July 11</div></div>
+            <div style="background:#fff;border:1px solid #ece6d7;border-radius:13px;padding:17px;"><div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#9a9382;margin-bottom:7px;">Tickets</div><div style="font-size:15px;color:#23291f;"><span data-bind="trackTickets">2</span> admitted</div></div>
+            <div style="background:#fff;border:1px solid #ece6d7;border-radius:13px;padding:17px;"><div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#9a9382;margin-bottom:7px;">Venue</div><div data-bind="trackVenue" style="font-size:15px;color:#23291f;">Gua Tempurung Basecamp</div></div>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:12px;background:#eef2e8;border:1px solid #d3e0c9;border-radius:13px;padding:15px 18px;margin-top:18px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#2f4a32" stroke-width="1.8"/><path d="M12 8v5M12 16h.01" stroke="#2f4a32" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span style="font-size:14px;color:#3a4a33;">Show this reference and a photo ID at the gate on your visit date. <span data-bind="trackGates">Gates open 8:00 AM</span>.</span>
+          </div>
+        </div>
+      </section>
 
     </main>
 
-    <!-- footer inserted with Track task -->
+    <footer style="margin-top:80px;border-top:1px solid #cfc7b4;padding-top:40px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;">
+      <div style="max-width:300px;">
+        <div style="display:flex;align-items:center;gap:9px;margin-bottom:14px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 22C12 22 4 16 4 9.5C4 6 7 3 12 3C17 3 20 6 20 9.5C20 16 12 22 12 22Z" fill="#2f4a32"/></svg>
+          <span style="font-family:'Newsreader',serif;font-size:18px;font-weight:600;letter-spacing:.04em;color:#1f3326;">GUA TEMPURUNG</span>
+        </div>
+        <p style="font-size:14px;line-height:1.6;color:#6b6553;margin:0;">Small-group guided adventures into wild places. Certified guides, low-impact travel, unforgettable terrain.</p>
+      </div>
+      <div style="display:flex;gap:56px;">
+        <div>
+          <div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8a6d4f;margin-bottom:14px;">Explore</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;color:#4a4636;">
+            <span>Trips</span><span>Gallery</span><span>Guides</span><span>Gear list</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8a6d4f;margin-bottom:14px;">Contact</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;color:#4a4636;">
+            <span>hello@guatempurung.co</span><span>+1 (555) 248 1190</span><span>Cascade Basecamp</span>
+          </div>
+        </div>
+      </div>
+    </footer>
 
   </div>
 </div>
