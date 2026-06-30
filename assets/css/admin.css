@@ -1,1 +1,37 @@
-/* admin.css — admin desktop + mobile layouts. Phase 5-6. */
+/* ============================================================================
+   admin.css — Gua Tempurung Basecamp OS (desktop + mobile layouts)
+   Structural styling stays inline (pixel-exact to the design); this holds the
+   stateful styles (sidebar active, hovers) and the mobile layout rules.
+   ============================================================================ */
+
+/* --- Sidebar nav --- */
+.sid-link {
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 14px; border-radius: 11px;
+  font-size: 14.5px; font-weight: 500;
+  width: 100%; text-align: left;
+  transition: background .18s, color .18s;
+  background: transparent; color: #bcd0b4;
+}
+.sid-link.is-active { background: #243d29; color: #fff; }
+.sid-link:hover { color: #fff; }
+
+/* --- Section panels: one visible at a time --- */
+[data-panel][hidden] { display: none; }
+
+/* --- Table row hover --- */
+.adm-row { transition: background .12s ease; }
+.adm-row:hover { background: #f8f5ec; }
+
+/* --- Booking filter buttons (active state set by JS) --- */
+.flt {
+  padding: 8px 16px; border-radius: 999px;
+  font-size: 13px; font-weight: 500;
+  border: 1px solid #ddd6c5; background: #fbfaf6; color: #6b6553;
+  transition: all .18s;
+}
+.flt.is-active { border-color: #2f4a32; background: #2f4a32; color: #f4f1ea; }
+
+/* ============================================================================
+   MOBILE ADMIN (built in Phase 6)
+   ============================================================================ */
