@@ -1,1 +1,25 @@
-/* landing.css — landing desktop + mobile layouts. Phase 2-3. */
+/* ============================================================================
+   landing.css — Gua Tempurung landing page (desktop + mobile layouts)
+   Structural styling stays inline (pixel-exact to the design); this file holds
+   stateful styles the inline styles can't express (active nav, hovers) and the
+   mobile layout rules.
+   ============================================================================ */
+
+/* --- Desktop top nav --- */
+.nav-link {
+  font-size: 15px;
+  padding-bottom: 3px;
+  color: #5b5848;
+  border-bottom: 2px solid transparent;
+  transition: color .2s, border-color .2s;
+  background: none;
+}
+.nav-link.is-active { color: #2f4a32; border-bottom-color: #bf6b3a; }
+.nav-link:hover { color: #2f4a32; }
+
+/* --- Panels: one tab visible at a time (JS controls [hidden]) --- */
+[data-panel][hidden] { display: none; }
+
+/* ============================================================================
+   MOBILE LANDING (built in Phase 3)
+   ============================================================================ */

@@ -1,1 +1,125 @@
-<!-- Gua Tempurung — Landing (/). Built in Phase 2-4. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gua Tempurung — Guided Adventures</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/landing.css">
+</head>
+<body>
+
+<!-- ================= DESKTOP VIEW ================= -->
+<div class="view-desktop wt-scroll">
+  <div style="max-width:1200px;margin:0 auto;padding:0 28px 90px;">
+
+    <header style="display:flex;align-items:center;justify-content:space-between;padding:24px 0 26px;">
+      <div style="display:flex;align-items:center;gap:11px;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M12 22C12 22 4 16 4 9.5C4 6 7 3 12 3C17 3 20 6 20 9.5C20 16 12 22 12 22Z" fill="#2f4a32"/><path d="M12 21V8M12 13C9.5 13 8 11 8 9M12 16C14.5 16 16 14 16 12" stroke="#e7e2d4" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <div style="line-height:1;">
+          <div style="font-family:'Newsreader',serif;font-size:21px;font-weight:600;letter-spacing:.04em;color:#1f3326;">GUA TEMPURUNG</div>
+          <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6d4f;margin-top:3px;">Guided Adventures</div>
+        </div>
+      </div>
+      <nav data-tab-group="landing" style="display:flex;align-items:center;gap:34px;">
+        <button class="nav-link is-active" data-action="goHome" data-tab="home">Home</button>
+        <button class="nav-link" data-action="goBook" data-tab="book">Book</button>
+        <button class="nav-link" data-action="goGallery" data-tab="gallery">Gallery</button>
+        <button class="nav-link" data-action="goTrack" data-tab="track">Track</button>
+      </nav>
+      <button class="btn-orange" data-action="goBook" style="display:flex;align-items:center;gap:8px;background:#bf6b3a;color:#fff;font-size:14px;font-weight:500;padding:11px 20px;border-radius:999px;box-shadow:0 6px 16px rgba(191,107,58,.28);">Book tickets <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </header>
+
+    <main data-panel-group="landing">
+
+      <!-- ---------- HOME ---------- -->
+      <section data-panel="home">
+        <div style="position:relative;height:580px;border-radius:22px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(22,38,27,.5);">
+          <div data-bind-style="heroBg" style="position:absolute;inset:0;background:repeating-radial-gradient(circle at 72% 38%, transparent 0 26px, rgba(168,192,138,.10) 26px 27px), radial-gradient(120% 130% at 75% 15%, #3c5a3e 0%, #243d29 45%, #16261b 100%);"></div>
+          <div style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(11,20,14,.72) 0%, rgba(11,20,14,.35) 45%, transparent 72%);"></div>
+
+          <div style="position:absolute;top:22px;left:24px;display:flex;align-items:center;gap:8px;background:rgba(0,0,0,.32);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.16);color:#e9efe2;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:7px 13px;border-radius:999px;">
+            <span style="width:7px;height:7px;border-radius:50%;background:#bf6b3a;"></span>Hero video <span data-bind="heroNum">01</span> · drops in later
+          </div>
+
+          <div style="position:absolute;left:54px;bottom:56px;max-width:560px;color:#f4f1ea;">
+            <div data-bind="heroKicker" style="font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#cdbf9f;margin-bottom:16px;">Featured route · Hiking</div>
+            <h1 data-bind="heroTitle" style="font-family:'Newsreader',serif;font-weight:500;font-size:62px;line-height:1.03;margin:0 0 18px;letter-spacing:-.01em;">Above the clouds, on foot</h1>
+            <p data-bind="heroSub" style="font-size:18px;line-height:1.5;color:#dfe6d6;margin:0 0 28px;max-width:440px;">Two days along an exposed alpine ridge, nights under a sky with no city in it.</p>
+            <div style="display:flex;align-items:center;gap:16px;">
+              <button data-action="goBook" style="display:flex;align-items:center;gap:9px;background:#f4f1ea;color:#1f3326;font-size:15px;font-weight:500;padding:14px 26px;border-radius:999px;">Reserve a spot</button>
+              <button style="display:flex;align-items:center;gap:10px;color:#f4f1ea;font-size:15px;"><span style="display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.45);"><svg width="15" height="15" viewBox="0 0 24 24" fill="#f4f1ea"><path d="M8 5v14l11-7z"/></svg></span>Watch film</button>
+            </div>
+            <div data-bind="heroMeta" style="margin-top:30px;font-size:14px;color:#cdbf9f;">Alpine Ridge Trek · 2 days · Challenging</div>
+          </div>
+
+          <button data-action="heroPrev" style="position:absolute;right:118px;bottom:58px;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.22);color:#f4f1ea;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button data-action="heroNext" style="position:absolute;right:58px;bottom:58px;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.22);color:#f4f1ea;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+
+          <div data-hero-dots style="position:absolute;right:58px;top:26px;display:flex;gap:8px;">
+            <button class="hero-dot" data-action="heroDot" data-arg="0" style="width:24px;height:7px;border-radius:999px;background:#f4f1ea;transition:all .3s;"></button>
+            <button class="hero-dot" data-action="heroDot" data-arg="1" style="width:7px;height:7px;border-radius:999px;background:rgba(244,241,234,.42);transition:all .3s;"></button>
+            <button class="hero-dot" data-action="heroDot" data-arg="2" style="width:7px;height:7px;border-radius:999px;background:rgba(244,241,234,.42);transition:all .3s;"></button>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:70px;">
+          <div style="background:#fbfaf6;border:1px solid #e3ddcd;border-radius:16px;padding:28px;">
+            <div style="width:46px;height:46px;border-radius:12px;background:#eef2e8;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.5 5 5.5.8-4 3.9 1 5.5L12 20l-5 2.6 1-5.5-4-3.9 5.5-.8z" stroke="#2f4a32" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+            <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;margin:0 0 8px;color:#1f3326;">Certified guides</h3>
+            <p style="font-size:14px;line-height:1.6;color:#6b6553;margin:0;">Every trip is led by a wilderness-certified guide who knows the terrain by heart.</p>
+          </div>
+          <div style="background:#fbfaf6;border:1px solid #e3ddcd;border-radius:16px;padding:28px;">
+            <div style="width:46px;height:46px;border-radius:12px;background:#f3e9df;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3" stroke="#8a6d4f" stroke-width="1.6"/><circle cx="16" cy="9" r="2.4" stroke="#8a6d4f" stroke-width="1.6"/><path d="M4 19c0-2.8 2.2-5 5-5s5 2.2 5 5M14 19c0-1.9.8-3.6 2-4.5" stroke="#8a6d4f" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+            <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;margin:0 0 8px;color:#1f3326;">Small groups</h3>
+            <p style="font-size:14px;line-height:1.6;color:#6b6553;margin:0;">Eight travellers max, so the wild stays quiet and the pace stays yours.</p>
+          </div>
+          <div style="background:#fbfaf6;border:1px solid #e3ddcd;border-radius:16px;padding:28px;">
+            <div style="width:46px;height:46px;border-radius:12px;background:#f3e3d8;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-5-7-11a7 7 0 0114 0c0 6-7 11-7 11z" stroke="#bf6b3a" stroke-width="1.6"/><path d="M12 11a2 2 0 100-4 2 2 0 000 4z" stroke="#bf6b3a" stroke-width="1.6"/></svg></div>
+            <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;margin:0 0 8px;color:#1f3326;">Low impact</h3>
+            <p style="font-size:14px;line-height:1.6;color:#6b6553;margin:0;">Leave-no-trace routes and carbon-balanced travel on every single departure.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:70px;background:radial-gradient(120% 160% at 80% 0%, #2f5040 0%, #1c3325 60%, #16261b 100%);border-radius:22px;padding:64px 60px;position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;opacity:.4;background:repeating-radial-gradient(circle at 85% 20%, transparent 0 30px, rgba(168,192,138,.10) 30px 31px);"></div>
+          <div style="position:relative;max-width:760px;">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="#7e9b6a" style="margin-bottom:12px;"><path d="M10 11H6a4 4 0 014-4V5a6 6 0 00-6 6v6h6v-6zm10 0h-4a4 4 0 014-4V5a6 6 0 00-6 6v6h6v-6z"/></svg>
+            <p style="font-family:'Newsreader',serif;font-weight:400;font-size:31px;line-height:1.35;color:#f4f1ea;margin:0 0 24px;">I have travelled a lot, but nothing prepared me for standing on that ridge at sunrise. Gua Tempurung handled every detail so I could just be present in it.</p>
+            <div style="display:flex;align-items:center;gap:13px;">
+              <div style="width:44px;height:44px;border-radius:50%;background:#bf6b3a;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Newsreader',serif;font-size:16px;">ML</div>
+              <div><div style="color:#f4f1ea;font-size:15px;">Maya Lin</div><div style="color:#9bb39a;font-size:13px;">Alpine Ridge Trek · June</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:46px;display:flex;align-items:center;justify-content:space-between;gap:30px;background:#fbfaf6;border:1px solid #e3ddcd;border-radius:22px;padding:46px 50px;flex-wrap:wrap;">
+          <div>
+            <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:34px;line-height:1.08;margin:0 0 8px;color:#1f3326;">Ready when you are.</h2>
+            <p style="font-size:16px;color:#6b6553;margin:0;">Pick a date, gather your people, and we'll take care of the wild.</p>
+          </div>
+          <button class="btn-orange" data-action="goBook" style="display:flex;align-items:center;gap:9px;background:#bf6b3a;color:#fff;font-size:16px;font-weight:500;padding:16px 30px;border-radius:999px;box-shadow:0 10px 22px -8px rgba(191,107,58,.5);white-space:nowrap;">Start a booking <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+      </section>
+
+      <!-- BOOK / GALLERY / TRACK panels inserted in later tasks -->
+
+    </main>
+
+    <!-- footer inserted with Track task -->
+
+  </div>
+</div>
+
+<!-- ================= MOBILE VIEW (Phase 3) ================= -->
+
+<script defer src="assets/js/store.js"></script>
+<script defer src="assets/js/render.js"></script>
+<script defer src="assets/js/calendar.js"></script>
+<script defer src="assets/js/booking.js"></script>
+<script defer src="assets/js/landing.js"></script>
+</body>
+</html>
