@@ -32,6 +32,15 @@
 }
 .flt.is-active { border-color: #2f4a32; background: #2f4a32; color: #f4f1ea; }
 
+/* --- Gallery editor Video/Image tabs --- */
+.gtab {
+  padding: 6px 16px; border-radius: 999px;
+  font-size: 13px; font-weight: 500;
+  background: transparent; color: #6b6553;
+  transition: background .18s, color .18s;
+}
+.gtab.is-active { background: #2f4a32; color: #f4f1ea; }
+
 /* ============================================================================
    MOBILE ADMIN (built in Phase 6)
    ============================================================================ */

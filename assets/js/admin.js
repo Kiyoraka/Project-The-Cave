@@ -177,6 +177,120 @@
   App.onAction('incWeekend', function () { S.setState({ quotaWeekend: Math.min(500, S.state.quotaWeekend + 5) }); });
   App.onAction('decWeekend', function () { S.setState({ quotaWeekend: Math.max(0, S.state.quotaWeekend - 5) }); });
 
+  /* ----------------------------- gallery editor ---------------------------- */
+  var galTab = 'video';
+  var galleryDraft = null;
+  function gdraft() { if (!galleryDraft) galleryDraft = S.gallery(); return galleryDraft; }
+  function isData(s) { return s && s.indexOf('data:') === 0; }
+
+  function galThumb(type, item) {
+    if (type === 'video') {
+      var bg = item.src ? '#16261b url(&quot;' + App.escapeHtml(item.src) + '&quot;) center/cover' : item.g;
+      return '<div style="width:84px;height:56px;border-radius:8px;flex-shrink:0;background:' + bg + ';position:relative;overflow:hidden;"><span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:22px;height:22px;border-radius:50%;background:rgba(244,241,234,.9);display:flex;align-items:center;justify-content:center;"><svg width="11" height="11" viewBox="0 0 24 24" fill="#1f3326"><path d="M8 5v14l11-7z"/></svg></span></div>';
+    }
+    return item.src
+      ? '<div style="width:56px;height:56px;border-radius:8px;flex-shrink:0;background:#dfe4d4 url(&quot;' + App.escapeHtml(item.src) + '&quot;) center/cover;"></div>'
+      : '<div style="width:56px;height:56px;border-radius:8px;flex-shrink:0;background:#dfe4d4;border:1px dashed #b9c1a8;"></div>';
+  }
+
+  function galRowsHtml() {
+    var d = gdraft();
+    var inp = 'border:1px solid #ddd6c5;border-radius:9px;padding:8px 11px;background:#fff;font-size:13.5px;color:#23291f;';
+    if (galTab === 'video') {
+      return d.videos.map(function (v, i) {
+        var urlVal = isData(v.src) ? '' : (v.src || '');
+        return '<div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #ece6d7;flex-wrap:wrap;">'
+          + '<div data-gthumb="video-' + i + '">' + galThumb('video', v) + '</div>'
+          + '<div style="flex:1;min-width:180px;display:flex;flex-direction:column;gap:7px;">'
+          + '<input data-gfield="t" data-gtype="video" data-gidx="' + i + '" value="' + App.escapeHtml(v.t) + '" placeholder="Video title" style="' + inp + '">'
+          + '<div style="display:flex;gap:7px;">'
+          + '<input data-gfield="d" data-gtype="video" data-gidx="' + i + '" value="' + App.escapeHtml(v.d) + '" placeholder="0:00" style="width:80px;' + inp + '">'
+          + '<input data-gfield="src" data-gtype="video" data-gidx="' + i + '" value="' + App.escapeHtml(urlVal) + '" placeholder="Poster image URL (or upload)" style="flex:1;min-width:120px;' + inp + '">'
+          + '</div></div>'
+          + '<button class="btn-soft" data-action="galUpload" data-gtype="video" data-gidx="' + i + '" style="border:1px solid #ddd6c5;background:#fff;color:#2f4a32;border-radius:9px;padding:8px 13px;font-size:13px;">Upload</button>'
+          + '</div>';
+      }).join('');
+    }
+    return d.photos.map(function (p, i) {
+      var urlVal = isData(p.src) ? '' : (p.src || '');
+      return '<div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #ece6d7;flex-wrap:wrap;">'
+        + '<div data-gthumb="image-' + i + '">' + galThumb('image', p) + '</div>'
+        + '<div style="flex:1;min-width:180px;display:flex;flex-direction:column;gap:7px;">'
+        + '<input data-gfield="cap" data-gtype="image" data-gidx="' + i + '" value="' + App.escapeHtml(p.cap) + '" placeholder="Caption" style="' + inp + '">'
+        + '<input data-gfield="src" data-gtype="image" data-gidx="' + i + '" value="' + App.escapeHtml(urlVal) + '" placeholder="Image URL (or upload)" style="' + inp + '">'
+        + '</div>'
+        + '<button class="btn-soft" data-action="galUpload" data-gtype="image" data-gidx="' + i + '" style="border:1px solid #ddd6c5;background:#fff;color:#2f4a32;border-radius:9px;padding:8px 13px;font-size:13px;">Upload</button>'
+        + '</div>';
+    }).join('');
+  }
+
+  function renderEditor() {
+    App.each(document, '[data-gallery-editor]', function (el) { el.innerHTML = galRowsHtml(); });
+    App.each(document, '.gtab', function (b) { b.classList.toggle('is-active', b.getAttribute('data-arg') === galTab); });
+  }
+
+  function setRowSrc(type, idx, src) {
+    var d = gdraft();
+    var item = type === 'video' ? d.videos[idx] : d.photos[idx];
+    item.src = src;
+    App.each(document, '[data-gthumb="' + type + '-' + idx + '"]', function (t) { t.innerHTML = galThumb(type, item); });
+    /* uploaded data-URLs don't belong in the URL box — clear it so it isn't dumped there */
+    App.each(document, 'input[data-gfield="src"][data-gtype="' + type + '"][data-gidx="' + idx + '"]', function (inp) {
+      inp.value = isData(src) ? '' : src;
+    });
+  }
+
+  function downscale(dataUrl, cb) {
+    var img = new Image();
+    img.onload = function () {
+      var max = 1000, w = img.width, h = img.height;
+      if (w > max || h > max) { var r = Math.min(max / w, max / h); w = Math.round(w * r); h = Math.round(h * r); }
+      var c = document.createElement('canvas'); c.width = w; c.height = h;
+      c.getContext('2d').drawImage(img, 0, 0, w, h);
+      try { cb(c.toDataURL('image/jpeg', 0.72)); } catch (e) { cb(dataUrl); }
+    };
+    img.onerror = function () { cb(dataUrl); };
+    img.src = dataUrl;
+  }
+
+  var pendingUpload = null;
+  var fileInput = document.createElement('input');
+  fileInput.type = 'file'; fileInput.accept = 'image/*'; fileInput.style.display = 'none';
+  fileInput.addEventListener('change', function () {
+    var f = fileInput.files && fileInput.files[0];
+    if (!f || !pendingUpload) { return; }
+    var pu = pendingUpload;
+    var reader = new FileReader();
+    reader.onload = function () { downscale(reader.result, function (url) { setRowSrc(pu.type, pu.idx, url); }); };
+    reader.readAsDataURL(f);
+    fileInput.value = '';
+  });
+
+  App.onAction('galTab', function (arg) { galTab = arg; renderEditor(); });
+  App.onAction('galUpload', function (arg, el) {
+    pendingUpload = { type: el.getAttribute('data-gtype'), idx: +el.getAttribute('data-gidx') };
+    fileInput.click();
+  });
+  App.onAction('galSave', function () {
+    var ok = S.saveGallery(gdraft());
+    App.each(document, '[data-gal-status]', function (s) {
+      s.textContent = ok ? 'Saved — refresh the public Gallery to see it.' : 'Could not save (browser storage full).';
+      s.style.color = ok ? '#2f4a32' : '#8a3322';
+    });
+  });
+
+  /* live text edits update the draft (no re-render -> keeps input focus) */
+  document.addEventListener('input', function (e) {
+    var el = e.target.closest && e.target.closest('[data-gfield]');
+    if (!el) { return; }
+    var type = el.getAttribute('data-gtype'), idx = +el.getAttribute('data-gidx'), field = el.getAttribute('data-gfield');
+    var d = gdraft(), item = type === 'video' ? d.videos[idx] : d.photos[idx];
+    item[field] = el.value;
+    if (field === 'src') {
+      App.each(document, '[data-gthumb="' + type + '-' + idx + '"]', function (t) { t.innerHTML = galThumb(type, item); });
+    }
+  });
+
   /* ----------------------------- render ------------------------------------- */
   function adminValues() {
     var st = S.state, t = S.ADMIN_TITLES[st.adminTab] || S.ADMIN_TITLES.main;
@@ -201,5 +315,5 @@
   }
 
   S.subscribe(render);
-  App.ready(function () { initStatics(); render(); });
+  App.ready(function () { document.body.appendChild(fileInput); initStatics(); renderEditor(); render(); });
 })(window);
