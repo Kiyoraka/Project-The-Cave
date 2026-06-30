@@ -224,55 +224,68 @@
         <!-- ---------- SETTING ---------- -->
         <div data-panel="setting" hidden>
           <div style="max-width:980px;">
-            <div style="background:#fbfaf6;border:1px solid #e3ddcd;border-radius:16px;padding:24px;">
-              <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:19px;margin:0 0 4px;color:#1f3326;">Capacity &amp; quota</h3>
-              <p style="font-size:13.5px;color:#7a7460;margin:0 0 20px;">Set how many tickets are available on weekdays versus weekends — no need to configure each date.</p>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start;max-width:640px;">
-                <div>
-                  <div style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#8a6d4f;margin-bottom:12px;">Weekday quota · Mon–Fri</div>
-                  <div style="display:flex;align-items:center;gap:15px;">
-                    <button class="btn-soft" data-action="decWeekday" style="width:42px;height:42px;border-radius:12px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:22px;display:flex;align-items:center;justify-content:center;">−</button>
-                    <span data-bind="quotaWeekday" style="font-family:'Newsreader',serif;font-size:34px;color:#1f3326;min-width:58px;text-align:center;">40</span>
-                    <button class="btn-soft" data-action="incWeekday" style="width:42px;height:42px;border-radius:12px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:22px;display:flex;align-items:center;justify-content:center;">+</button>
-                    <span style="font-size:13px;color:#9a9382;">tickets / day</span>
-                  </div>
-                </div>
-                <div>
-                  <div style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#8a6d4f;margin-bottom:12px;">Weekend quota · Sat–Sun</div>
-                  <div style="display:flex;align-items:center;gap:15px;">
-                    <button class="btn-soft" data-action="decWeekend" style="width:42px;height:42px;border-radius:12px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:22px;display:flex;align-items:center;justify-content:center;">−</button>
-                    <span data-bind="quotaWeekend" style="font-family:'Newsreader',serif;font-size:34px;color:#1f3326;min-width:58px;text-align:center;">60</span>
-                    <button class="btn-soft" data-action="incWeekend" style="width:42px;height:42px;border-radius:12px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:22px;display:flex;align-items:center;justify-content:center;">+</button>
-                    <span style="font-size:13px;color:#9a9382;">tickets / day</span>
-                  </div>
-                </div>
-              </div>
+            <div class="stab-bar">
+              <button class="stab is-active" data-action="settingsTab" data-arg="capacity">Capacity &amp; quota</button>
+              <button class="stab" data-action="settingsTab" data-arg="business">Business profile</button>
+              <button class="stab" data-action="settingsTab" data-arg="gallery">Gallery</button>
+            </div>
 
-              <div style="border-top:1px solid #ece6d7;margin:26px 0;"></div>
-
-              <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:19px;margin:0 0 18px;color:#1f3326;">Business profile</h3>
-              <div style="display:flex;flex-direction:column;gap:15px;max-width:640px;">
-                <label style="display:block;"><span style="display:block;font-size:13px;color:#6b6553;margin-bottom:6px;">Company name</span><input class="inp" value="Gua Tempurung Guided Adventures" style="width:100%;border:1px solid #ddd6c5;border-radius:10px;padding:11px 13px;background:#fff;font-size:14px;color:#23291f;"></label>
-                <label style="display:block;"><span style="display:block;font-size:13px;color:#6b6553;margin-bottom:6px;">Contact email</span><input class="inp" value="hello@guatempurung.co" style="width:100%;border:1px solid #ddd6c5;border-radius:10px;padding:11px 13px;background:#fff;font-size:14px;color:#23291f;"></label>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-                  <label style="display:block;"><span style="display:block;font-size:13px;color:#6b6553;margin-bottom:6px;">Phone</span><input class="inp" value="+1 (555) 248 1190" style="width:100%;border:1px solid #ddd6c5;border-radius:10px;padding:11px 13px;background:#fff;font-size:14px;color:#23291f;"></label>
-                  <label style="display:block;"><span style="display:block;font-size:13px;color:#6b6553;margin-bottom:6px;">Region</span><input class="inp" value="Cascade Range, OR" style="width:100%;border:1px solid #ddd6c5;border-radius:10px;padding:11px 13px;background:#fff;font-size:14px;color:#23291f;"></label>
+            <div data-spanel="capacity">
+              <div style="background:#fbfaf6;border:1px solid #e3ddcd;border-radius:16px;padding:24px;">
+                <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:19px;margin:0 0 4px;color:#1f3326;">Capacity &amp; quota</h3>
+                <p style="font-size:13.5px;color:#7a7460;margin:0 0 20px;">Set how many tickets are available on weekdays versus weekends — no need to configure each date.</p>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start;max-width:640px;">
+                  <div>
+                    <div style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#8a6d4f;margin-bottom:12px;">Weekday quota · Mon–Fri</div>
+                    <div style="display:flex;align-items:center;gap:15px;">
+                      <button class="btn-soft" data-action="decWeekday" style="width:42px;height:42px;border-radius:12px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:22px;display:flex;align-items:center;justify-content:center;">−</button>
+                      <span data-bind="quotaWeekday" style="font-family:'Newsreader',serif;font-size:34px;color:#1f3326;min-width:58px;text-align:center;">40</span>
+                      <button class="btn-soft" data-action="incWeekday" style="width:42px;height:42px;border-radius:12px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:22px;display:flex;align-items:center;justify-content:center;">+</button>
+                      <span style="font-size:13px;color:#9a9382;">tickets / day</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#8a6d4f;margin-bottom:12px;">Weekend quota · Sat–Sun</div>
+                    <div style="display:flex;align-items:center;gap:15px;">
+                      <button class="btn-soft" data-action="decWeekend" style="width:42px;height:42px;border-radius:12px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:22px;display:flex;align-items:center;justify-content:center;">−</button>
+                      <span data-bind="quotaWeekend" style="font-family:'Newsreader',serif;font-size:34px;color:#1f3326;min-width:58px;text-align:center;">60</span>
+                      <button class="btn-soft" data-action="incWeekend" style="width:42px;height:42px;border-radius:12px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:22px;display:flex;align-items:center;justify-content:center;">+</button>
+                      <span style="font-size:13px;color:#9a9382;">tickets / day</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div style="background:#fbfaf6;border:1px solid #e3ddcd;border-radius:16px;padding:24px;margin-top:18px;">
-              <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:6px;">
-                <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:19px;margin:0;color:#1f3326;">Gallery</h3>
-                <div style="display:flex;background:#fff;border:1px solid #e3ddcd;border-radius:999px;padding:4px;">
-                  <button class="gtab is-active" data-action="galTab" data-arg="video">Video</button>
-                  <button class="gtab" data-action="galTab" data-arg="image">Image</button>
+
+            <div data-spanel="business" hidden>
+              <div style="background:#fbfaf6;border:1px solid #e3ddcd;border-radius:16px;padding:24px;">
+                <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:19px;margin:0 0 18px;color:#1f3326;">Business profile</h3>
+                <div style="display:flex;flex-direction:column;gap:15px;max-width:640px;">
+                  <label style="display:block;"><span style="display:block;font-size:13px;color:#6b6553;margin-bottom:6px;">Company name</span><input class="inp" value="Gua Tempurung Guided Adventures" style="width:100%;border:1px solid #ddd6c5;border-radius:10px;padding:11px 13px;background:#fff;font-size:14px;color:#23291f;"></label>
+                  <label style="display:block;"><span style="display:block;font-size:13px;color:#6b6553;margin-bottom:6px;">Contact email</span><input class="inp" value="hello@guatempurung.co" style="width:100%;border:1px solid #ddd6c5;border-radius:10px;padding:11px 13px;background:#fff;font-size:14px;color:#23291f;"></label>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                    <label style="display:block;"><span style="display:block;font-size:13px;color:#6b6553;margin-bottom:6px;">Phone</span><input class="inp" value="+1 (555) 248 1190" style="width:100%;border:1px solid #ddd6c5;border-radius:10px;padding:11px 13px;background:#fff;font-size:14px;color:#23291f;"></label>
+                    <label style="display:block;"><span style="display:block;font-size:13px;color:#6b6553;margin-bottom:6px;">Region</span><input class="inp" value="Cascade Range, OR" style="width:100%;border:1px solid #ddd6c5;border-radius:10px;padding:11px 13px;background:#fff;font-size:14px;color:#23291f;"></label>
+                  </div>
                 </div>
               </div>
-              <p style="font-size:13.5px;color:#7a7460;margin:0 0 8px;">Upload a file or paste a URL for each slot, then save. Changes appear on the public Gallery.</p>
-              <div data-gallery-editor></div>
-              <div style="display:flex;align-items:center;gap:14px;margin-top:16px;">
-                <button class="btn-green" data-action="galSave" style="background:#2f4a32;color:#f4f1ea;font-size:14px;font-weight:500;padding:11px 22px;border-radius:11px;">Save gallery</button>
-                <span data-gal-status style="font-size:13px;color:#7a7460;"></span>
+            </div>
+
+            <div data-spanel="gallery" hidden>
+              <div style="background:#fbfaf6;border:1px solid #e3ddcd;border-radius:16px;padding:24px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:6px;">
+                  <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:19px;margin:0;color:#1f3326;">Gallery</h3>
+                  <div style="display:flex;background:#fff;border:1px solid #e3ddcd;border-radius:999px;padding:4px;">
+                    <button class="gtab is-active" data-action="galTab" data-arg="video">Video</button>
+                    <button class="gtab" data-action="galTab" data-arg="image">Image</button>
+                  </div>
+                </div>
+                <p style="font-size:13.5px;color:#7a7460;margin:0 0 8px;">Upload a file or paste a URL for each slot, then save. Changes appear on the public Gallery.</p>
+                <div data-gallery-editor></div>
+                <div style="display:flex;align-items:center;gap:14px;margin-top:16px;">
+                  <button class="btn-green" data-action="galSave" style="background:#2f4a32;color:#f4f1ea;font-size:14px;font-weight:500;padding:11px 22px;border-radius:11px;">Save gallery</button>
+                  <span data-gal-status style="font-size:13px;color:#7a7460;"></span>
+                </div>
               </div>
             </div>
           </div>

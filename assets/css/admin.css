@@ -41,6 +41,21 @@
 }
 .gtab.is-active { background: #2f4a32; color: #f4f1ea; }
 
+/* --- Settings tab bar (desktop only) --- */
+.stab-bar {
+  display: inline-flex; flex-wrap: wrap; gap: 2px;
+  background: #fbfaf6; border: 1px solid #e3ddcd;
+  border-radius: 999px; padding: 5px; margin-bottom: 18px;
+}
+.stab {
+  padding: 9px 18px; border-radius: 999px;
+  font-size: 14px; font-weight: 500;
+  background: transparent; color: #6b6553;
+  transition: background .18s, color .18s;
+}
+.stab.is-active { background: #2f4a32; color: #f4f1ea; }
+.stab:hover:not(.is-active) { color: #2f4a32; }
+
 /* ============================================================================
    MOBILE ADMIN (built in Phase 6)
    ============================================================================ */

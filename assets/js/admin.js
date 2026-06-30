@@ -279,6 +279,14 @@
     });
   });
 
+  /* ----------------------------- settings tabs (desktop) ------------------- */
+  var settingsTab = 'capacity';
+  function renderSettingsTabs() {
+    App.each(document, '[data-spanel]', function (el) { el.hidden = el.getAttribute('data-spanel') !== settingsTab; });
+    App.each(document, '.stab', function (b) { b.classList.toggle('is-active', b.getAttribute('data-arg') === settingsTab); });
+  }
+  App.onAction('settingsTab', function (arg) { settingsTab = arg; renderSettingsTabs(); });
+
   /* live text edits update the draft (no re-render -> keeps input focus) */
   document.addEventListener('input', function (e) {
     var el = e.target.closest && e.target.closest('[data-gfield]');
@@ -315,5 +323,5 @@
   }
 
   S.subscribe(render);
-  App.ready(function () { document.body.appendChild(fileInput); initStatics(); renderEditor(); render(); });
+  App.ready(function () { document.body.appendChild(fileInput); initStatics(); renderEditor(); renderSettingsTabs(); render(); });
 })(window);
