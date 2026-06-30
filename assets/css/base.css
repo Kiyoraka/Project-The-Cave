@@ -97,7 +97,7 @@ img { max-width: 100%; display: block; }
 .inp:focus { border-color: var(--green) !important; outline: none; }
 
 .cal-cell { transition: background .12s ease; }
-.cal-cell:hover { background: #e9efe1; }
+.cal-cell:hover { background: #e9efe1 !important; }
 
 /* utility: visually-hidden (a11y, not used for layout swap) */
 .sr-only {
