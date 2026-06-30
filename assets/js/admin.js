@@ -172,27 +172,18 @@
   App.onAction('bookTickets', Booking.bookTickets);
   App.onAction('clearBooking', Booking.clearBooking);
 
-  App.onAction('incQuota', function () { S.setState({ quotaDefault: Math.min(500, S.state.quotaDefault + 5) }); });
-  App.onAction('decQuota', function () { S.setState({ quotaDefault: Math.max(5, S.state.quotaDefault - 5) }); });
-  App.onAction('incSelQuota', function () {
-    var st = S.state, k = Cal.dkey(st.selYear, st.selMonth, st.selDay), cur = Cal.quota(st.selYear, st.selMonth, st.selDay);
-    var o = {}; for (var kk in st.quotaOverrides) o[kk] = st.quotaOverrides[kk];
-    o[k] = cur + 5; S.setState({ quotaOverrides: o });
-  });
-  App.onAction('decSelQuota', function () {
-    var st = S.state, k = Cal.dkey(st.selYear, st.selMonth, st.selDay), cur = Cal.quota(st.selYear, st.selMonth, st.selDay);
-    var o = {}; for (var kk in st.quotaOverrides) o[kk] = st.quotaOverrides[kk];
-    o[k] = Math.max(0, cur - 5); S.setState({ quotaOverrides: o });
-  });
+  App.onAction('incWeekday', function () { S.setState({ quotaWeekday: Math.min(500, S.state.quotaWeekday + 5) }); });
+  App.onAction('decWeekday', function () { S.setState({ quotaWeekday: Math.max(0, S.state.quotaWeekday - 5) }); });
+  App.onAction('incWeekend', function () { S.setState({ quotaWeekend: Math.min(500, S.state.quotaWeekend + 5) }); });
+  App.onAction('decWeekend', function () { S.setState({ quotaWeekend: Math.max(0, S.state.quotaWeekend - 5) }); });
 
   /* ----------------------------- render ------------------------------------- */
   function adminValues() {
     var st = S.state, t = S.ADMIN_TITLES[st.adminTab] || S.ADMIN_TITLES.main;
     return {
       adminTitle: t[0], adminSubtitle: t[1],
-      quotaDefault: st.quotaDefault,
-      selQuotaValue: Cal.quota(st.selYear, st.selMonth, st.selDay),
-      selDateFull: S.WEEKDAYS_FULL[new Date(st.selYear, st.selMonth, st.selDay).getDay()] + ', ' + S.MONTHS[st.selMonth] + ' ' + st.selDay
+      quotaWeekday: st.quotaWeekday,
+      quotaWeekend: st.quotaWeekend
     };
   }
 

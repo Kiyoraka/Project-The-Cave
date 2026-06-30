@@ -10,7 +10,7 @@
 
   function dkey(y, m, d) { return y + '-' + m + '-' + d; }
   function seedBooked(y, m, d) { if (d % 9 === 0) return 100; return (d * 13 + (m + 1) * 7 + 3) % 38; }
-  function quota(y, m, d) { var o = S.state.quotaOverrides[dkey(y, m, d)]; return o != null ? o : S.state.quotaDefault; }
+  function quota(y, m, d) { var dow = new Date(y, m, d).getDay(); return (dow === 0 || dow === 6) ? S.state.quotaWeekend : S.state.quotaWeekday; }
   function booked(y, m, d) { var b = S.state.bookedByDate[dkey(y, m, d)]; return b != null ? b : seedBooked(y, m, d); }
   function avail(y, m, d) { return Math.max(0, quota(y, m, d) - booked(y, m, d)); }
 

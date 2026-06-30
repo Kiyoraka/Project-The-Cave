@@ -111,8 +111,8 @@
     heroIndex:  0,
     calYear: 2026, calMonth: 6,            /* July 2026 */
     selYear: 2026, selMonth: 6, selDay: 12,
-    quotaDefault: 40,
-    quotaOverrides: {},
+    quotaWeekday: 40,                      /* Mon-Fri tickets/day */
+    quotaWeekend: 60,                      /* Sat-Sun tickets/day */
     bookedByDate: {},
     ticketQty: 2,
     lastBooking: null,

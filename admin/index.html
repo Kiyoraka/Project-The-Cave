@@ -226,44 +226,25 @@
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:980px;">
             <div style="grid-column:1 / -1;background:#fbfaf6;border:1px solid #e3ddcd;border-radius:16px;padding:24px;">
               <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:19px;margin:0 0 4px;color:#1f3326;">Capacity &amp; quota</h3>
-              <p style="font-size:13.5px;color:#7a7460;margin:0 0 20px;">Set how many tickets are available per day. Override any specific date by selecting it on the calendar.</p>
-              <div style="display:grid;grid-template-columns:1fr 1.15fr;gap:26px;align-items:start;">
+              <p style="font-size:13.5px;color:#7a7460;margin:0 0 20px;">Set how many tickets are available on weekdays versus weekends — no need to configure each date.</p>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start;max-width:640px;">
                 <div>
-                  <div style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#8a6d4f;margin-bottom:12px;">Default daily quota</div>
+                  <div style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#8a6d4f;margin-bottom:12px;">Weekday quota · Mon–Fri</div>
                   <div style="display:flex;align-items:center;gap:15px;">
-                    <button class="btn-soft" data-action="decQuota" style="width:42px;height:42px;border-radius:12px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:22px;display:flex;align-items:center;justify-content:center;">−</button>
-                    <span data-bind="quotaDefault" style="font-family:'Newsreader',serif;font-size:34px;color:#1f3326;min-width:58px;text-align:center;">40</span>
-                    <button class="btn-soft" data-action="incQuota" style="width:42px;height:42px;border-radius:12px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:22px;display:flex;align-items:center;justify-content:center;">+</button>
+                    <button class="btn-soft" data-action="decWeekday" style="width:42px;height:42px;border-radius:12px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:22px;display:flex;align-items:center;justify-content:center;">−</button>
+                    <span data-bind="quotaWeekday" style="font-family:'Newsreader',serif;font-size:34px;color:#1f3326;min-width:58px;text-align:center;">40</span>
+                    <button class="btn-soft" data-action="incWeekday" style="width:42px;height:42px;border-radius:12px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:22px;display:flex;align-items:center;justify-content:center;">+</button>
                     <span style="font-size:13px;color:#9a9382;">tickets / day</span>
                   </div>
-                  <div style="border-top:1px solid #ece6d7;margin-top:20px;padding-top:18px;">
-                    <div style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#8a6d4f;margin-bottom:4px;">Override this date</div>
-                    <div style="font-family:'Newsreader',serif;font-size:18px;color:#1f3326;margin-bottom:14px;"><span data-bind="selDateFull">Saturday, July 12</span>, <span data-bind="selYearLabel">2026</span></div>
-                    <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
-                      <button class="btn-soft" data-action="decSelQuota" style="width:38px;height:38px;border-radius:11px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:20px;display:flex;align-items:center;justify-content:center;">−</button>
-                      <span data-bind="selQuotaValue" style="font-family:'Newsreader',serif;font-size:26px;color:#1f3326;min-width:46px;text-align:center;">40</span>
-                      <button class="btn-soft" data-action="incSelQuota" style="width:38px;height:38px;border-radius:11px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:20px;display:flex;align-items:center;justify-content:center;">+</button>
-                      <span style="font-size:13px;color:#9a9382;">tickets</span>
-                    </div>
-                    <span data-bind="spotsLeftLabel" data-bind-style="availChipStyle" style="display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:#dfe9da;color:#2f4a32;font-size:13px;font-weight:600;"><span style="width:7px;height:7px;border-radius:50%;background:currentColor;"></span>28 of 40 left</span>
-                  </div>
                 </div>
-                <div style="background:#fff;border:1px solid #ece6d7;border-radius:14px;padding:18px;">
-                  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
-                    <button class="btn-soft" data-action="prevMonth" style="width:32px;height:32px;border-radius:9px;border:1px solid #ddd6c5;background:#fbfaf6;color:#2f4a32;display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-                    <span data-bind="calLabel" style="font-family:'Newsreader',serif;font-size:17px;color:#1f3326;">July 2026</span>
-                    <button class="btn-soft" data-action="nextMonth" style="width:32px;height:32px;border-radius:9px;border:1px solid #ddd6c5;background:#fbfaf6;color:#2f4a32;display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div>
+                  <div style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#8a6d4f;margin-bottom:12px;">Weekend quota · Sat–Sun</div>
+                  <div style="display:flex;align-items:center;gap:15px;">
+                    <button class="btn-soft" data-action="decWeekend" style="width:42px;height:42px;border-radius:12px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:22px;display:flex;align-items:center;justify-content:center;">−</button>
+                    <span data-bind="quotaWeekend" style="font-family:'Newsreader',serif;font-size:34px;color:#1f3326;min-width:58px;text-align:center;">60</span>
+                    <button class="btn-soft" data-action="incWeekend" style="width:42px;height:42px;border-radius:12px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:22px;display:flex;align-items:center;justify-content:center;">+</button>
+                    <span style="font-size:13px;color:#9a9382;">tickets / day</span>
                   </div>
-                  <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:5px;">
-                    <span style="text-align:center;font-size:10px;text-transform:uppercase;color:#9a9382;">Su</span>
-                    <span style="text-align:center;font-size:10px;text-transform:uppercase;color:#9a9382;">Mo</span>
-                    <span style="text-align:center;font-size:10px;text-transform:uppercase;color:#9a9382;">Tu</span>
-                    <span style="text-align:center;font-size:10px;text-transform:uppercase;color:#9a9382;">We</span>
-                    <span style="text-align:center;font-size:10px;text-transform:uppercase;color:#9a9382;">Th</span>
-                    <span style="text-align:center;font-size:10px;text-transform:uppercase;color:#9a9382;">Fr</span>
-                    <span style="text-align:center;font-size:10px;text-transform:uppercase;color:#9a9382;">Sa</span>
-                  </div>
-                  <div data-cal-grid="admin" data-cal-size="sm" style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;"></div>
                 </div>
               </div>
             </div>
@@ -417,30 +398,20 @@
       <div data-panel="setting" hidden style="display:flex;flex-direction:column;gap:14px;">
         <div style="background:#fbfaf6;border:1px solid #e3ddcd;border-radius:16px;padding:18px;">
           <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:17px;margin:0 0 4px;color:#1f3326;">Capacity &amp; quota</h3>
-          <p style="font-size:12.5px;color:#7a7460;margin:0 0 16px;">Tickets available per day. Tap a date to override it.</p>
-          <div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a6d4f;margin-bottom:10px;">Default daily quota</div>
-          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
-            <button class="btn-soft" data-action="decQuota" style="width:38px;height:38px;border-radius:11px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:20px;">−</button>
-            <span data-bind="quotaDefault" style="font-family:'Newsreader',serif;font-size:28px;color:#1f3326;min-width:48px;text-align:center;">40</span>
-            <button class="btn-soft" data-action="incQuota" style="width:38px;height:38px;border-radius:11px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:20px;">+</button>
+          <p style="font-size:12.5px;color:#7a7460;margin:0 0 16px;">Weekday and weekend ticket quotas — no need to set each date.</p>
+          <div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a6d4f;margin-bottom:10px;">Weekday · Mon–Fri</div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px;">
+            <button class="btn-soft" data-action="decWeekday" style="width:38px;height:38px;border-radius:11px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:20px;">−</button>
+            <span data-bind="quotaWeekday" style="font-family:'Newsreader',serif;font-size:28px;color:#1f3326;min-width:48px;text-align:center;">40</span>
+            <button class="btn-soft" data-action="incWeekday" style="width:38px;height:38px;border-radius:11px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:20px;">+</button>
             <span style="font-size:12.5px;color:#9a9382;">/ day</span>
           </div>
-          <div style="background:#fff;border:1px solid #ece6d7;border-radius:13px;padding:14px;margin-bottom:14px;">
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
-              <button class="btn-soft" data-action="prevMonth" style="width:30px;height:30px;border-radius:9px;border:1px solid #ddd6c5;background:#fbfaf6;color:#2f4a32;display:flex;align-items:center;justify-content:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-              <span data-bind="calLabel" style="font-family:'Newsreader',serif;font-size:16px;color:#1f3326;">July 2026</span>
-              <button class="btn-soft" data-action="nextMonth" style="width:30px;height:30px;border-radius:9px;border:1px solid #ddd6c5;background:#fbfaf6;color:#2f4a32;display:flex;align-items:center;justify-content:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            </div>
-            <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px;">
-              <div data-cal-grid="admin" data-cal-size="sm" style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px;grid-column:1 / -1;"></div>
-            </div>
-          </div>
-          <div style="font-size:12.5px;color:#6b6553;margin-bottom:6px;">Override · <span data-bind="selDateBig">Jul 12</span>, <span data-bind="selYearLabel">2026</span></div>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <button class="btn-soft" data-action="decSelQuota" style="width:34px;height:34px;border-radius:10px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:18px;">−</button>
-            <span data-bind="selQuotaValue" style="font-family:'Newsreader',serif;font-size:22px;color:#1f3326;min-width:40px;text-align:center;">40</span>
-            <button class="btn-soft" data-action="incSelQuota" style="width:34px;height:34px;border-radius:10px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:18px;">+</button>
-            <span data-bind="spotsLeftLabel" data-bind-style="availChipStyle" style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:#dfe9da;color:#2f4a32;font-size:13px;font-weight:600;"><span style="width:6px;height:6px;border-radius:50%;background:currentColor;"></span>28 of 40 left</span>
+          <div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a6d4f;margin-bottom:10px;">Weekend · Sat–Sun</div>
+          <div style="display:flex;align-items:center;gap:14px;">
+            <button class="btn-soft" data-action="decWeekend" style="width:38px;height:38px;border-radius:11px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:20px;">−</button>
+            <span data-bind="quotaWeekend" style="font-family:'Newsreader',serif;font-size:28px;color:#1f3326;min-width:48px;text-align:center;">60</span>
+            <button class="btn-soft" data-action="incWeekend" style="width:38px;height:38px;border-radius:11px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:20px;">+</button>
+            <span style="font-size:12.5px;color:#9a9382;">/ day</span>
           </div>
         </div>
         <div style="background:#fbfaf6;border:1px solid #e3ddcd;border-radius:16px;padding:18px;">
