@@ -47,12 +47,28 @@
 
   /* --- Render --- */
   function heroValues() {
-    var i = S.state.heroIndex, slide = S.HERO_SLIDES[i];
+    var i = S.state.heroIndex, slide = S.HERO_SLIDES[i], num = '0' + (i + 1);
     return {
-      heroNum: '0' + (i + 1),
+      heroNum: num,
+      heroBadge: S.HERO_VIDEO ? ('Hero film · ' + num) : ('Hero video ' + num + ' · drops in later'),
       heroKicker: slide.kicker, heroTitle: slide.title, heroSub: slide.sub, heroMeta: slide.meta,
       heroBg: 'position:absolute;inset:0;background:' + S.HERO_BGS[i] + ';'
     };
+  }
+
+  /* Hero background video: cover-fill + slow zoom (CSS). Shown only when a source is set. */
+  function setHeroVideo() {
+    var src = S.HERO_VIDEO;
+    App.each(document, '.hero-video', function (el) {
+      if (src) {
+        if (el.getAttribute('src') !== src) el.src = src;
+        el.style.display = 'block';
+        var p = el.play(); if (p && p.catch) { p.catch(function () {}); }
+      } else {
+        el.removeAttribute('src');
+        el.style.display = 'none';
+      }
+    });
   }
 
   /* --- Gallery rendering (from Store.gallery, which reads localStorage) --- */
@@ -125,6 +141,7 @@
   S.subscribe(render);
   App.ready(function () {
     renderGallery();   /* fill gallery once from saved/default content */
+    setHeroVideo();    /* attach hero video if a source is configured */
     render();
     /* hero autoplay — only while Home is the active tab (matches the design) */
     setInterval(function () {

@@ -17,6 +17,20 @@
 .nav-link.is-active { color: #2f4a32; border-bottom-color: #bf6b3a; }
 .nav-link:hover { color: #2f4a32; }
 
+/* --- Hero background video (cover + slow Ken Burns zoom) --- */
+.hero-video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: none;                 /* shown by JS only when a source is set */
+  animation: kenburns 24s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes kenburns {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.12); }
+}
+
 /* --- Panels: one tab visible at a time (JS controls [hidden]) --- */
 [data-panel][hidden] { display: none; }
 [data-gallery][hidden] { display: none !important; }
