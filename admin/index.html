@@ -152,7 +152,164 @@
           </div>
         </div>
 
-        <!-- POS / SETTING panels inserted in next task -->
+        <!-- ---------- POS ---------- -->
+        <div data-panel="pos" hidden>
+          <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:20px;align-items:start;">
+            <div style="display:flex;flex-direction:column;gap:20px;">
+              <div style="background:#fbfaf6;border:1px solid #e3ddcd;border-radius:16px;padding:22px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;">
+                  <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:19px;margin:0;color:#1f3326;">Booking date</h3>
+                  <div style="display:flex;align-items:center;gap:10px;">
+                    <button class="btn-soft" data-action="prevMonth" style="width:34px;height:34px;border-radius:10px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                    <span data-bind="calLabel" style="font-family:'Newsreader',serif;font-size:18px;color:#1f3326;min-width:150px;text-align:center;">July 2026</span>
+                    <button class="btn-soft" data-action="nextMonth" style="width:34px;height:34px;border-radius:10px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                  </div>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:8px;">
+                  <span style="text-align:center;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#9a9382;padding:4px 0;">Sun</span>
+                  <span style="text-align:center;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#9a9382;padding:4px 0;">Mon</span>
+                  <span style="text-align:center;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#9a9382;padding:4px 0;">Tue</span>
+                  <span style="text-align:center;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#9a9382;padding:4px 0;">Wed</span>
+                  <span style="text-align:center;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#9a9382;padding:4px 0;">Thu</span>
+                  <span style="text-align:center;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#9a9382;padding:4px 0;">Fri</span>
+                  <span style="text-align:center;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#9a9382;padding:4px 0;">Sat</span>
+                </div>
+                <div data-cal-grid="admin" data-cal-size="lg" style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px;"></div>
+              </div>
+            </div>
+
+            <div style="background:#16261b;border-radius:16px;padding:22px;color:#f4f1ea;position:sticky;top:90px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+                <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:19px;margin:0;">Sell tickets</h3>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16l-1.5 12.5A2 2 0 0116.5 21h-9a2 2 0 01-2-1.8L4 7z" stroke="#9bb39a" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 7V5a3 3 0 016 0v2" stroke="#9bb39a" stroke-width="1.6"/></svg>
+              </div>
+              <div style="display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:11px;padding:11px 13px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2.5" stroke="#9bb39a" stroke-width="1.6"/><path d="M3 9.5h18M8 3v4M16 3v4" stroke="#9bb39a" stroke-width="1.6" stroke-linecap="round"/></svg><span style="font-size:13.5px;color:#cdd9c5;">Date</span><span style="margin-left:auto;font-family:'Newsreader',serif;font-size:16px;color:#f4f1ea;"><span data-bind="selDateBig">Jul 12</span>, <span data-bind="selYearLabel">2026</span></span></div>
+
+              <div data-show="hasBooked" hidden style="text-align:center;padding:8px 0;">
+                <div style="width:50px;height:50px;border-radius:50%;background:#2f4a32;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="#f4f1ea" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div style="font-family:'Newsreader',serif;font-size:21px;margin-bottom:4px;">Sold <span data-bind="lastTickets">2</span> ticket(s)</div>
+                <div style="font-size:13.5px;color:#bcd0b4;margin-bottom:14px;">Ref <span data-bind="lastRef">GT-2050</span> · <span data-bind="selDateBig">Jul 12</span></div>
+                <button class="btn-orange" data-action="clearBooking" style="width:100%;background:#bf6b3a;color:#fff;font-size:15px;font-weight:500;padding:13px;border-radius:11px;">New sale</button>
+              </div>
+
+              <div data-show="bookingOpen">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+                  <span data-bind="spotsLeftLabel" data-bind-style="availChipStyle" style="display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:#dfe9da;color:#2f4a32;font-size:13px;font-weight:600;"><span style="width:7px;height:7px;border-radius:50%;background:currentColor;"></span>28 of 40 left</span>
+                  <span data-bind="availPctLabel" style="font-size:13px;color:#9bb39a;">30% booked</span>
+                </div>
+                <div style="height:7px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden;margin-bottom:18px;"><div data-bind-style="availFillStyle" style="width:30%;height:100%;border-radius:999px;background:#2f4a32;"></div></div>
+                <div data-show="selSoldout" hidden style="background:rgba(168,85,46,.16);border:1px solid rgba(191,107,58,.4);border-radius:12px;padding:15px;text-align:center;color:#e9c4ad;font-size:13.5px;">Sold out for this date.</div>
+                <div data-show="selAvailable">
+                  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+                    <span style="color:#cdd9c5;font-size:15px;">Tickets</span>
+                    <div style="display:flex;align-items:center;gap:14px;"><button data-action="decTicket" style="width:36px;height:36px;border-radius:10px;border:1px solid rgba(255,255,255,.25);color:#f4f1ea;font-size:20px;">−</button><span data-bind="ticketQty" style="font-family:'Newsreader',serif;font-size:24px;min-width:24px;text-align:center;">2</span><button data-action="incTicket" style="width:36px;height:36px;border-radius:10px;border:1px solid rgba(255,255,255,.25);color:#f4f1ea;font-size:20px;">+</button></div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:9px;font-size:14px;border-top:1px solid rgba(255,255,255,.14);padding-top:16px;">
+                    <div style="display:flex;justify-content:space-between;color:#cdd9c5;"><span><span data-bind="ticketPriceLabel">$48</span> × <span data-bind="ticketQty">2</span></span><span data-bind="posSubLabel" style="font-variant-numeric:tabular-nums;">$96</span></div>
+                    <div style="display:flex;justify-content:space-between;color:#cdd9c5;"><span>Tax (8%)</span><span data-bind="posTaxLabel" style="font-variant-numeric:tabular-nums;">$8</span></div>
+                    <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid rgba(255,255,255,.14);padding-top:13px;margin-top:3px;"><span style="color:#cdd9c5;">Total</span><span data-bind="posTotalLabel" style="font-family:'Newsreader',serif;font-size:26px;font-variant-numeric:tabular-nums;">$104</span></div>
+                  </div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px;">
+                    <button data-action="bookTickets" style="display:flex;align-items:center;justify-content:center;gap:7px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#f4f1ea;border-radius:11px;padding:13px;font-size:14px;">Cash</button>
+                    <button class="btn-orange" data-action="bookTickets" style="display:flex;align-items:center;justify-content:center;gap:7px;background:#bf6b3a;color:#fff;border-radius:11px;padding:13px;font-size:14px;font-weight:500;">Charge card</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---------- SETTING ---------- -->
+        <div data-panel="setting" hidden>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:980px;">
+            <div style="grid-column:1 / -1;background:#fbfaf6;border:1px solid #e3ddcd;border-radius:16px;padding:24px;">
+              <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:19px;margin:0 0 4px;color:#1f3326;">Capacity &amp; quota</h3>
+              <p style="font-size:13.5px;color:#7a7460;margin:0 0 20px;">Set how many tickets are available per day. Override any specific date by selecting it on the calendar.</p>
+              <div style="display:grid;grid-template-columns:1fr 1.15fr;gap:26px;align-items:start;">
+                <div>
+                  <div style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#8a6d4f;margin-bottom:12px;">Default daily quota</div>
+                  <div style="display:flex;align-items:center;gap:15px;">
+                    <button class="btn-soft" data-action="decQuota" style="width:42px;height:42px;border-radius:12px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:22px;display:flex;align-items:center;justify-content:center;">−</button>
+                    <span data-bind="quotaDefault" style="font-family:'Newsreader',serif;font-size:34px;color:#1f3326;min-width:58px;text-align:center;">40</span>
+                    <button class="btn-soft" data-action="incQuota" style="width:42px;height:42px;border-radius:12px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:22px;display:flex;align-items:center;justify-content:center;">+</button>
+                    <span style="font-size:13px;color:#9a9382;">tickets / day</span>
+                  </div>
+                  <div style="border-top:1px solid #ece6d7;margin-top:20px;padding-top:18px;">
+                    <div style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#8a6d4f;margin-bottom:4px;">Override this date</div>
+                    <div style="font-family:'Newsreader',serif;font-size:18px;color:#1f3326;margin-bottom:14px;"><span data-bind="selDateFull">Saturday, July 12</span>, <span data-bind="selYearLabel">2026</span></div>
+                    <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
+                      <button class="btn-soft" data-action="decSelQuota" style="width:38px;height:38px;border-radius:11px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:20px;display:flex;align-items:center;justify-content:center;">−</button>
+                      <span data-bind="selQuotaValue" style="font-family:'Newsreader',serif;font-size:26px;color:#1f3326;min-width:46px;text-align:center;">40</span>
+                      <button class="btn-soft" data-action="incSelQuota" style="width:38px;height:38px;border-radius:11px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;font-size:20px;display:flex;align-items:center;justify-content:center;">+</button>
+                      <span style="font-size:13px;color:#9a9382;">tickets</span>
+                    </div>
+                    <span data-bind="spotsLeftLabel" data-bind-style="availChipStyle" style="display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:#dfe9da;color:#2f4a32;font-size:13px;font-weight:600;"><span style="width:7px;height:7px;border-radius:50%;background:currentColor;"></span>28 of 40 left</span>
+                  </div>
+                </div>
+                <div style="background:#fff;border:1px solid #ece6d7;border-radius:14px;padding:18px;">
+                  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+                    <button class="btn-soft" data-action="prevMonth" style="width:32px;height:32px;border-radius:9px;border:1px solid #ddd6c5;background:#fbfaf6;color:#2f4a32;display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                    <span data-bind="calLabel" style="font-family:'Newsreader',serif;font-size:17px;color:#1f3326;">July 2026</span>
+                    <button class="btn-soft" data-action="nextMonth" style="width:32px;height:32px;border-radius:9px;border:1px solid #ddd6c5;background:#fbfaf6;color:#2f4a32;display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                  </div>
+                  <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:5px;">
+                    <span style="text-align:center;font-size:10px;text-transform:uppercase;color:#9a9382;">Su</span>
+                    <span style="text-align:center;font-size:10px;text-transform:uppercase;color:#9a9382;">Mo</span>
+                    <span style="text-align:center;font-size:10px;text-transform:uppercase;color:#9a9382;">Tu</span>
+                    <span style="text-align:center;font-size:10px;text-transform:uppercase;color:#9a9382;">We</span>
+                    <span style="text-align:center;font-size:10px;text-transform:uppercase;color:#9a9382;">Th</span>
+                    <span style="text-align:center;font-size:10px;text-transform:uppercase;color:#9a9382;">Fr</span>
+                    <span style="text-align:center;font-size:10px;text-transform:uppercase;color:#9a9382;">Sa</span>
+                  </div>
+                  <div data-cal-grid="admin" data-cal-size="sm" style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;"></div>
+                </div>
+              </div>
+            </div>
+            <div style="background:#fbfaf6;border:1px solid #e3ddcd;border-radius:16px;padding:24px;">
+              <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:19px;margin:0 0 18px;color:#1f3326;">Business profile</h3>
+              <div style="display:flex;flex-direction:column;gap:15px;">
+                <label style="display:block;"><span style="display:block;font-size:13px;color:#6b6553;margin-bottom:6px;">Company name</span><input class="inp" value="Gua Tempurung Guided Adventures" style="width:100%;border:1px solid #ddd6c5;border-radius:10px;padding:11px 13px;background:#fff;font-size:14px;color:#23291f;"></label>
+                <label style="display:block;"><span style="display:block;font-size:13px;color:#6b6553;margin-bottom:6px;">Contact email</span><input class="inp" value="hello@guatempurung.co" style="width:100%;border:1px solid #ddd6c5;border-radius:10px;padding:11px 13px;background:#fff;font-size:14px;color:#23291f;"></label>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                  <label style="display:block;"><span style="display:block;font-size:13px;color:#6b6553;margin-bottom:6px;">Phone</span><input class="inp" value="+1 (555) 248 1190" style="width:100%;border:1px solid #ddd6c5;border-radius:10px;padding:11px 13px;background:#fff;font-size:14px;color:#23291f;"></label>
+                  <label style="display:block;"><span style="display:block;font-size:13px;color:#6b6553;margin-bottom:6px;">Region</span><input class="inp" value="Cascade Range, OR" style="width:100%;border:1px solid #ddd6c5;border-radius:10px;padding:11px 13px;background:#fff;font-size:14px;color:#23291f;"></label>
+                </div>
+              </div>
+            </div>
+            <div style="background:#fbfaf6;border:1px solid #e3ddcd;border-radius:16px;padding:24px;">
+              <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:19px;margin:0 0 18px;color:#1f3326;">Booking rules</h3>
+              <div style="display:flex;flex-direction:column;gap:15px;">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                  <label style="display:block;"><span style="display:block;font-size:13px;color:#6b6553;margin-bottom:6px;">Min. lead time</span><input class="inp" value="48 hours" style="width:100%;border:1px solid #ddd6c5;border-radius:10px;padding:11px 13px;background:#fff;font-size:14px;color:#23291f;"></label>
+                  <label style="display:block;"><span style="display:block;font-size:13px;color:#6b6553;margin-bottom:6px;">Max group size</span><input class="inp" value="8 guests" style="width:100%;border:1px solid #ddd6c5;border-radius:10px;padding:11px 13px;background:#fff;font-size:14px;color:#23291f;"></label>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid #ece6d7;padding-top:14px;"><span style="font-size:14px;color:#23291f;">Require deposit to confirm</span><span style="width:42px;height:24px;border-radius:999px;background:#2f4a32;position:relative;flex-shrink:0;"><span style="position:absolute;top:3px;left:21px;width:18px;height:18px;border-radius:50%;background:#fff;"></span></span></div>
+                <div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-size:14px;color:#23291f;">Auto-confirm returning guests</span><span style="width:42px;height:24px;border-radius:999px;background:#2f4a32;position:relative;flex-shrink:0;"><span style="position:absolute;top:3px;left:21px;width:18px;height:18px;border-radius:50%;background:#fff;"></span></span></div>
+                <div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-size:14px;color:#23291f;">Allow waitlist when full</span><span style="width:42px;height:24px;border-radius:999px;background:#cfc8b8;position:relative;flex-shrink:0;"><span style="position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;"></span></span></div>
+              </div>
+            </div>
+            <div style="background:#fbfaf6;border:1px solid #e3ddcd;border-radius:16px;padding:24px;">
+              <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:19px;margin:0 0 18px;color:#1f3326;">Payments</h3>
+              <div style="display:flex;flex-direction:column;gap:15px;">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                  <label style="display:block;"><span style="display:block;font-size:13px;color:#6b6553;margin-bottom:6px;">Currency</span><input class="inp" value="USD ($)" style="width:100%;border:1px solid #ddd6c5;border-radius:10px;padding:11px 13px;background:#fff;font-size:14px;color:#23291f;"></label>
+                  <label style="display:block;"><span style="display:block;font-size:13px;color:#6b6553;margin-bottom:6px;">Deposit</span><input class="inp" value="30%" style="width:100%;border:1px solid #ddd6c5;border-radius:10px;padding:11px 13px;background:#fff;font-size:14px;color:#23291f;"></label>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid #ece6d7;padding-top:14px;"><span style="font-size:14px;color:#23291f;">Accept card payments</span><span style="width:42px;height:24px;border-radius:999px;background:#2f4a32;position:relative;flex-shrink:0;"><span style="position:absolute;top:3px;left:21px;width:18px;height:18px;border-radius:50%;background:#fff;"></span></span></div>
+                <div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-size:14px;color:#23291f;">Accept cash on site</span><span style="width:42px;height:24px;border-radius:999px;background:#2f4a32;position:relative;flex-shrink:0;"><span style="position:absolute;top:3px;left:21px;width:18px;height:18px;border-radius:50%;background:#fff;"></span></span></div>
+              </div>
+            </div>
+            <div style="background:#fbfaf6;border:1px solid #e3ddcd;border-radius:16px;padding:24px;">
+              <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:19px;margin:0 0 18px;color:#1f3326;">Team</h3>
+              <div style="display:flex;flex-direction:column;gap:13px;">
+                <div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;border-radius:50%;background:#2f4a32;color:#f4f1ea;display:flex;align-items:center;justify-content:center;font-family:'Newsreader',serif;font-size:15px;flex-shrink:0;">RM</div><div style="flex:1;min-width:0;line-height:1.25;"><div style="font-size:14.5px;color:#23291f;">Rowan Mercer</div><div style="font-size:12.5px;color:#8a6d4f;">Lead guide · Owner</div></div><button style="font-size:13px;color:#2f4a32;border:1px solid #cfc8b8;border-radius:9px;padding:7px 13px;">Manage</button></div>
+                <div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;border-radius:50%;background:#2f4a32;color:#f4f1ea;display:flex;align-items:center;justify-content:center;font-family:'Newsreader',serif;font-size:15px;flex-shrink:0;">SW</div><div style="flex:1;min-width:0;line-height:1.25;"><div style="font-size:14.5px;color:#23291f;">Sage Whitlock</div><div style="font-size:12.5px;color:#8a6d4f;">Operations</div></div><button style="font-size:13px;color:#2f4a32;border:1px solid #cfc8b8;border-radius:9px;padding:7px 13px;">Manage</button></div>
+                <div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;border-radius:50%;background:#2f4a32;color:#f4f1ea;display:flex;align-items:center;justify-content:center;font-family:'Newsreader',serif;font-size:15px;flex-shrink:0;">BC</div><div style="flex:1;min-width:0;line-height:1.25;"><div style="font-size:14.5px;color:#23291f;">Bo Castellan</div><div style="font-size:12.5px;color:#8a6d4f;">River guide</div></div><button style="font-size:13px;color:#2f4a32;border:1px solid #cfc8b8;border-radius:9px;padding:7px 13px;">Manage</button></div>
+                <button style="display:flex;align-items:center;justify-content:center;gap:7px;border:1px dashed #b6ab90;border-radius:11px;padding:12px;font-size:14px;color:#6b6553;margin-top:4px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Invite teammate</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
     </main>
