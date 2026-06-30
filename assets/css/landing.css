@@ -42,15 +42,8 @@
 }
 
 /* ============================================================================
-   MOBILE LANDING — fullscreen real mobile (device bezel/status bar dropped)
+   MOBILE LANDING — landing-only top bar (shared shell/nav live in base.css)
    ============================================================================ */
-.m-shell {
-  position: relative;
-  min-height: 100vh;
-  background: #f4f1ea;
-  display: flex;
-  flex-direction: column;
-}
 .m-topbar {
   flex-shrink: 0;
   display: flex;
@@ -61,29 +54,3 @@
   background: #f4f1ea;
   border-bottom: 1px solid #ddd6c5;
 }
-.m-scroll {
-  flex: 1;
-  overflow-y: auto;
-  padding-bottom: 84px;          /* clear the fixed bottom nav */
-}
-.m-bottomnav {
-  position: fixed;
-  left: 0; right: 0; bottom: 0;
-  height: 74px;
-  background: rgba(251,250,246,.97);
-  backdrop-filter: blur(10px);
-  border-top: 1px solid #e0d9c8;
-  display: flex;
-  align-items: center;
-  padding: 0 6px 8px;
-  z-index: 20;
-}
-.m-navbtn {
-  display: flex; flex-direction: column; align-items: center; gap: 4px;
-  flex: 1; padding: 7px 0;
-  background: none;
-  font-size: 10px; font-weight: 600; letter-spacing: .02em;
-  color: #9a9382;
-  transition: color .15s;
-}
-.m-navbtn.is-active { color: #2f4a32; }
