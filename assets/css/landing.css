@@ -19,6 +19,27 @@
 
 /* --- Panels: one tab visible at a time (JS controls [hidden]) --- */
 [data-panel][hidden] { display: none; }
+[data-gallery][hidden] { display: none !important; }
+
+/* --- Gallery videos/photos toggle --- */
+.gal-toggle {
+  display: flex; align-items: center; gap: 8px;
+  padding: 9px 20px; border-radius: 999px;
+  font-size: 14px; font-weight: 500; transition: all .2s;
+  background: transparent; color: #6b6553;
+}
+.gal-toggle.is-active { background: #2f4a32; color: #f4f1ea; }
+
+/* --- Image-slot placeholder (replaces design's <image-slot> web component) --- */
+.img-slot {
+  width: 100%;
+  display: flex; align-items: center; justify-content: center;
+  background: #dfe4d4;
+  border: 1px dashed #b9c1a8;
+  border-radius: 16px;
+  color: #7e8869;
+  font-size: 13px; letter-spacing: .04em;
+}
 
 /* ============================================================================
    MOBILE LANDING (built in Phase 3)
