@@ -131,11 +131,36 @@
   /* --- Money helper (currency symbol fixed to $, as the design default) --- */
   function money(n) { return '$' + Number(n).toLocaleString('en-US'); }
 
+  /* --- Gallery: editable content persisted in the browser (no backend) ---
+     Owner edits in admin Settings -> saved to localStorage 'gt_gallery' ->
+     the public Gallery renders from here. `src` is an uploaded data-URL or a
+     pasted URL ('' = fall back to the design placeholder). */
+  var GAL_KEY = 'gt_gallery';
+  function gallery() {
+    var saved = null;
+    try { saved = JSON.parse(localStorage.getItem(GAL_KEY) || 'null'); } catch (e) { saved = null; }
+    var sv = saved && saved.videos || [];
+    var sp = saved && saved.photos || [];
+    return {
+      videos: GAL_VIDEOS.map(function (v, i) {
+        var s = sv[i] || {};
+        return { t: s.t != null ? s.t : v.t, d: s.d != null ? s.d : v.d, g: v.g, src: s.src || '' };
+      }),
+      photos: GAL_PHOTOS.map(function (p, i) {
+        var s = sp[i] || {};
+        return { cap: s.cap != null ? s.cap : p.cap, src: s.src || '' };
+      })
+    };
+  }
+  function saveGallery(draft) {
+    try { localStorage.setItem(GAL_KEY, JSON.stringify(draft)); return true; } catch (e) { return false; }
+  }
+
   global.Store = {
     state: state, setState: setState, subscribe: subscribe, money: money,
     TICKET_PRICE: TICKET_PRICE, MONTHS: MONTHS, WEEKDAYS_FULL: WEEKDAYS_FULL,
     HERO_SLIDES: HERO_SLIDES, HERO_BGS: HERO_BGS,
-    GAL_VIDEOS: GAL_VIDEOS, GAL_PHOTOS: GAL_PHOTOS,
+    GAL_VIDEOS: GAL_VIDEOS, GAL_PHOTOS: GAL_PHOTOS, gallery: gallery, saveGallery: saveGallery,
     KPIS: KPIS, RAW_BOOKINGS: RAW_BOOKINGS, BOOKING_FILTERS: BOOKING_FILTERS,
     STATUS_COLORS: STATUS_COLORS, CHANNELS: CHANNELS,
     REVENUE_SERIES: REVENUE_SERIES, WEEKDAY_BARS: WEEKDAY_BARS,
