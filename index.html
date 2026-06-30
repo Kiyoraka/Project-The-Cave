@@ -105,7 +105,89 @@
         </div>
       </section>
 
-      <!-- BOOK / GALLERY / TRACK panels inserted in later tasks -->
+      <!-- ---------- BOOK ---------- -->
+      <section data-panel="book" hidden style="padding-top:8px;">
+        <div style="margin-bottom:30px;">
+          <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#8a6d4f;margin-bottom:10px;">Book tickets</div>
+          <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:38px;line-height:1.05;margin:0;color:#1f3326;">Reserve your visit</h2>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 380px;gap:30px;align-items:start;">
+          <div style="display:flex;flex-direction:column;gap:26px;">
+            <div style="background:#fbfaf6;border:1px solid #e3ddcd;border-radius:16px;padding:26px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+                <div style="font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#8a6d4f;">Choose a date</div>
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <button class="btn-soft" data-action="prevMonth" style="width:36px;height:36px;border-radius:10px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                  <span data-bind="calLabel" style="font-family:'Newsreader',serif;font-size:20px;color:#1f3326;min-width:168px;text-align:center;">July 2026</span>
+                  <button class="btn-soft" data-action="nextMonth" style="width:36px;height:36px;border-radius:10px;border:1px solid #ddd6c5;background:#fff;color:#2f4a32;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                </div>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:8px;">
+                <span style="text-align:center;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#9a9382;padding:4px 0;">Sun</span>
+                <span style="text-align:center;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#9a9382;padding:4px 0;">Mon</span>
+                <span style="text-align:center;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#9a9382;padding:4px 0;">Tue</span>
+                <span style="text-align:center;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#9a9382;padding:4px 0;">Wed</span>
+                <span style="text-align:center;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#9a9382;padding:4px 0;">Thu</span>
+                <span style="text-align:center;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#9a9382;padding:4px 0;">Fri</span>
+                <span style="text-align:center;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#9a9382;padding:4px 0;">Sat</span>
+              </div>
+              <div data-cal-grid="landing" style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px;"></div>
+              <div style="display:flex;align-items:center;gap:18px;margin-top:16px;padding-top:14px;border-top:1px solid #ece6d7;font-size:12px;color:#6b6553;">
+                <span style="display:flex;align-items:center;gap:6px;"><span style="width:8px;height:8px;border-radius:50%;background:#2f4a32;"></span>Available</span>
+                <span style="display:flex;align-items:center;gap:6px;"><span style="width:8px;height:8px;border-radius:50%;background:#c47a3f;"></span>Limited</span>
+                <span style="display:flex;align-items:center;gap:6px;"><span style="width:8px;height:8px;border-radius:50%;background:#cbbfae;"></span>Sold out</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="position:sticky;top:78px;background:#16261b;border-radius:18px;padding:28px;color:#f4f1ea;box-shadow:0 24px 44px -26px rgba(22,38,27,.7);">
+            <div style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#9bb39a;margin-bottom:18px;">Your visit</div>
+            <div data-bind="selWeekdayLabel" style="font-size:13px;color:#9bb39a;margin-bottom:5px;">Saturday</div>
+            <div data-bind="selDateBig" style="font-family:'Newsreader',serif;font-size:36px;line-height:1;margin-bottom:3px;">Jul 12</div>
+            <div data-bind="selYearLabel" style="font-size:15px;color:#bcd0b4;margin-bottom:18px;">2026</div>
+
+            <!-- confirmation -->
+            <div data-show="hasBooked" hidden style="text-align:center;padding:6px 0 4px;">
+              <div style="width:54px;height:54px;border-radius:50%;background:#2f4a32;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="#f4f1ea" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div style="font-family:'Newsreader',serif;font-size:23px;margin-bottom:5px;">Tickets booked</div>
+              <div style="font-size:14px;color:#bcd0b4;margin-bottom:12px;"><span data-bind="lastTickets">2</span> ticket(s) · <span data-bind="selDateBig">Jul 12</span>, <span data-bind="selYearLabel">2026</span></div>
+              <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:8px 15px;font-size:14px;color:#cdd9c5;">Reference <span data-bind="lastRef" style="font-family:'Newsreader',serif;color:#fff;letter-spacing:.03em;">GT-2050</span></div>
+              <button class="btn-orange" data-action="goTrack" style="width:100%;margin-top:18px;background:#bf6b3a;color:#fff;font-size:15px;font-weight:500;padding:14px;border-radius:11px;">Track this booking</button>
+              <button data-action="clearBooking" style="width:100%;margin-top:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#f4f1ea;font-size:15px;padding:13px;border-radius:11px;">Book another date</button>
+            </div>
+
+            <!-- booking open -->
+            <div data-show="bookingOpen">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:11px;">
+                <span data-bind="spotsLeftLabel" data-bind-style="availChipStyle" style="display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:#dfe9da;color:#2f4a32;font-size:13px;font-weight:600;"><span style="width:7px;height:7px;border-radius:50%;background:currentColor;"></span>28 of 40 left</span>
+                <span data-bind="availPctLabel" style="font-size:13px;color:#9bb39a;">30% booked</span>
+              </div>
+              <div style="height:7px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden;margin-bottom:22px;"><div data-bind-style="availFillStyle" style="width:30%;height:100%;border-radius:999px;background:#2f4a32;"></div></div>
+
+              <div data-show="selSoldout" hidden style="background:rgba(168,85,46,.16);border:1px solid rgba(191,107,58,.4);border-radius:12px;padding:16px;text-align:center;color:#e9c4ad;font-size:14px;line-height:1.5;">This date is sold out. Pick another date on the calendar.</div>
+
+              <div data-show="selAvailable">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+                  <span style="color:#cdd9c5;font-size:15px;">Tickets</span>
+                  <div style="display:flex;align-items:center;gap:14px;">
+                    <button data-action="decTicket" style="width:36px;height:36px;border-radius:10px;border:1px solid rgba(255,255,255,.25);color:#f4f1ea;font-size:20px;display:flex;align-items:center;justify-content:center;">−</button>
+                    <span data-bind="ticketQty" style="font-family:'Newsreader',serif;font-size:24px;min-width:24px;text-align:center;">2</span>
+                    <button data-action="incTicket" style="width:36px;height:36px;border-radius:10px;border:1px solid rgba(255,255,255,.25);color:#f4f1ea;font-size:20px;display:flex;align-items:center;justify-content:center;">+</button>
+                  </div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:11px;font-size:15px;border-top:1px solid rgba(255,255,255,.12);padding-top:16px;">
+                  <div style="display:flex;justify-content:space-between;"><span style="color:#cdd9c5;"><span data-bind="ticketPriceLabel">$48</span> × <span data-bind="ticketQty">2</span></span><span data-bind="ticketTotalLabel">$96</span></div>
+                  <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid rgba(255,255,255,.12);padding-top:14px;"><span style="color:#cdd9c5;">Total</span><span data-bind="ticketTotalLabel" style="font-family:'Newsreader',serif;font-size:28px;">$96</span></div>
+                </div>
+                <button class="btn-orange" data-action="bookTickets" style="width:100%;margin-top:20px;background:#bf6b3a;color:#fff;font-size:16px;font-weight:500;padding:15px;border-radius:12px;">Book tickets</button>
+                <div style="display:flex;align-items:center;gap:8px;justify-content:center;margin-top:14px;font-size:12.5px;color:#9bb39a;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 11V8a4 4 0 018 0v3" stroke="currentColor" stroke-width="1.8"/></svg>Free cancellation up to 7 days before</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY / TRACK panels inserted in later tasks -->
 
     </main>
 
