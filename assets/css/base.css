@@ -59,6 +59,10 @@ input, select, textarea { font-family: inherit; }
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 
+/* The hidden attribute must win over inline display (panels/toggles set
+   display:flex inline; without this they never hide). */
+[hidden] { display: none !important; }
+
 /* --- Animations (from design) --- */
 @keyframes wtfloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
 @keyframes wtspin  { to { transform: rotate(360deg); } }
