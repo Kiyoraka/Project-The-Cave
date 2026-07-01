@@ -146,6 +146,6 @@
     /* hero autoplay — only while Home is the active tab (matches the design) */
     setInterval(function () {
       if (S.state.landingTab === 'home') S.setState({ heroIndex: (S.state.heroIndex + 1) % 3 });
-    }, 5200);
+    }, 8000);
   });
 })(window);

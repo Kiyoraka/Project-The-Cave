@@ -26,7 +26,7 @@
   ];
   /* Hero background video: set to a file path ('assets/video/hero.mp4') or a URL to
      turn the hero into a looping, slowly-zooming film. Empty = gradient placeholder. */
-  var HERO_VIDEO = '';
+  var HERO_VIDEO = 'assets/video/hero.mp4';
   var HERO_BGS = [
     'repeating-radial-gradient(circle at 72% 38%, transparent 0 26px, rgba(168,192,138,.10) 26px 27px), radial-gradient(120% 130% at 75% 15%, #3c5a3e 0%, #243d29 45%, #16261b 100%)',
     'repeating-radial-gradient(circle at 70% 40%, transparent 0 24px, rgba(170,205,200,.10) 24px 25px), radial-gradient(120% 130% at 70% 20%, #2f5a52 0%, #1e3f3a 48%, #14292a 100%)',
