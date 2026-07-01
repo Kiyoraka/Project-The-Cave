@@ -24,9 +24,9 @@
       sub: 'Ascend through all five great caverns to the highest chamber, where the dark opens into cathedral space.',
       meta: 'Top of the World · 2-3 hrs · Challenging' }
   ];
-  /* Hero background video: set to a file path ('assets/video/hero.mp4') or a URL to
-     turn the hero into a looping, slowly-zooming film. Empty = gradient placeholder. */
-  var HERO_VIDEO = 'assets/video/hero.mp4';
+  /* Hero background videos: one clip per carousel slide (index-aligned with HERO_SLIDES).
+     Each turns its slide into a looping, slowly-zooming film; '' = gradient placeholder. */
+  var HERO_VIDEOS = ['assets/video/hero-1.mp4', 'assets/video/hero-2.mp4', 'assets/video/hero-3.mp4'];
   var HERO_BGS = [
     'repeating-radial-gradient(circle at 72% 38%, transparent 0 26px, rgba(168,192,138,.10) 26px 27px), radial-gradient(120% 130% at 75% 15%, #3c5a3e 0%, #243d29 45%, #16261b 100%)',
     'repeating-radial-gradient(circle at 70% 40%, transparent 0 24px, rgba(170,205,200,.10) 24px 25px), radial-gradient(120% 130% at 70% 20%, #2f5a52 0%, #1e3f3a 48%, #14292a 100%)',
@@ -162,7 +162,7 @@
   global.Store = {
     state: state, setState: setState, subscribe: subscribe, money: money,
     TICKET_PRICE: TICKET_PRICE, MONTHS: MONTHS, WEEKDAYS_FULL: WEEKDAYS_FULL,
-    HERO_SLIDES: HERO_SLIDES, HERO_BGS: HERO_BGS, HERO_VIDEO: HERO_VIDEO,
+    HERO_SLIDES: HERO_SLIDES, HERO_BGS: HERO_BGS, HERO_VIDEOS: HERO_VIDEOS,
     GAL_VIDEOS: GAL_VIDEOS, GAL_PHOTOS: GAL_PHOTOS, gallery: gallery, saveGallery: saveGallery,
     KPIS: KPIS, RAW_BOOKINGS: RAW_BOOKINGS, BOOKING_FILTERS: BOOKING_FILTERS,
     STATUS_COLORS: STATUS_COLORS, CHANNELS: CHANNELS,

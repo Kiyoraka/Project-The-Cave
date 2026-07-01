@@ -50,18 +50,22 @@
     var i = S.state.heroIndex, slide = S.HERO_SLIDES[i], num = '0' + (i + 1);
     return {
       heroNum: num,
-      heroBadge: S.HERO_VIDEO ? ('Hero film · ' + num) : ('Hero video ' + num + ' · drops in later'),
+      heroBadge: S.HERO_VIDEOS[i] ? ('Hero film · ' + num) : ('Hero video ' + num + ' · drops in later'),
       heroKicker: slide.kicker, heroTitle: slide.title, heroSub: slide.sub, heroMeta: slide.meta,
       heroBg: 'position:absolute;inset:0;background:' + S.HERO_BGS[i] + ';'
     };
   }
 
-  /* Hero background video: cover-fill + slow zoom (CSS). Shown only when a source is set. */
+  /* Hero background video: one clip per carousel slide (cover-fill + slow zoom via CSS).
+     Swaps to the active slide's source; slides with no video fall back to their gradient. */
   function setHeroVideo() {
-    var src = S.HERO_VIDEO;
+    var src = S.HERO_VIDEOS[S.state.heroIndex] || '';
     App.each(document, '.hero-video', function (el) {
       if (src) {
-        if (el.getAttribute('src') !== src) el.src = src;
+        if (el.getAttribute('src') !== src) {
+          el.src = src;
+          el.poster = src.replace(/\.mp4$/, '-poster.jpg');
+        }
         el.style.display = 'block';
         var p = el.play(); if (p && p.catch) { p.catch(function () {}); }
       } else {
@@ -117,6 +121,7 @@
     var bk = Booking.values();
     for (var k in bk) values[k] = bk[k];
     App.apply(values);
+    setHeroVideo();   /* swap hero clip to match the active slide */
 
     Cal.render();
     App.showPanel('landing', st.landingTab);
@@ -141,11 +146,10 @@
   S.subscribe(render);
   App.ready(function () {
     renderGallery();   /* fill gallery once from saved/default content */
-    setHeroVideo();    /* attach hero video if a source is configured */
-    render();
+    render();          /* render() attaches the active slide's hero clip */
     /* hero autoplay — only while Home is the active tab (matches the design) */
     setInterval(function () {
       if (S.state.landingTab === 'home') S.setState({ heroIndex: (S.state.heroIndex + 1) % 3 });
-    }, 8000);
+    }, 6000);
   });
 })(window);
