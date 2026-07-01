@@ -14,15 +14,15 @@
 
   /* --- Hardcoded content data (exact from design, rebranded) --- */
   var HERO_SLIDES = [
-    { kicker: 'Featured route · Hiking', title: 'Above the clouds, on foot',
-      sub: 'Two days along an exposed alpine ridge, nights under a sky with no city in it.',
-      meta: 'Alpine Ridge Trek · 2 days · Challenging' },
-    { kicker: 'Featured route · Water', title: 'Paddle the wild water',
-      sub: 'Run a glassy canyon river between thousand-foot walls with a certified river guide.',
-      meta: 'Canyon River Kayak · 1 day · Moderate' },
-    { kicker: 'Featured route · Forest', title: 'Walk among giants',
-      sub: 'A gentle half-day through old-growth forest where the light comes down in columns.',
-      meta: 'Old-Growth Forest Walk · Half day · Easy' }
+    { kicker: 'Featured tour · Golden Flowstone', title: 'Where the limestone glows',
+      sub: 'A lit boardwalk winds past golden flowstone and calcite curtains two million years in the making.',
+      meta: 'Golden Flowstone Tour · 40 min · Easy' },
+    { kicker: 'Featured tour · River caving', title: 'Wade the river through the mountain',
+      sub: 'Follow the underground Tempurung River deep into the cave, cool and chest-high through carved limestone.',
+      meta: 'Grand Tour · 3-4 hrs · Adventurous' },
+    { kicker: 'Featured tour · The Five Domes', title: 'Climb to the top of the world',
+      sub: 'Ascend through all five great caverns to the highest chamber, where the dark opens into cathedral space.',
+      meta: 'Top of the World · 2-3 hrs · Challenging' }
   ];
   /* Hero background video: set to a file path ('assets/video/hero.mp4') or a URL to
      turn the hero into a looping, slowly-zooming film. Empty = gradient placeholder. */
@@ -34,14 +34,14 @@
   ];
 
   var GAL_VIDEOS = [
-    { t: 'Summit at dawn',     d: '1:24', g: 'radial-gradient(120% 120% at 70% 20%, #3c5a3e, #16261b)' },
-    { t: 'River run',          d: '0:58', g: 'radial-gradient(120% 120% at 70% 20%, #2f5a52, #14292a)' },
-    { t: 'Into the canyon',    d: '2:10', g: 'radial-gradient(120% 120% at 70% 20%, #5a4a32, #211a12)' },
-    { t: 'Forest light',       d: '1:46', g: 'radial-gradient(120% 120% at 70% 20%, #46603a, #1b2913)' },
-    { t: 'Camp under stars',   d: '3:02', g: 'radial-gradient(120% 120% at 70% 20%, #2c3b4f, #121821)' },
-    { t: 'Ridge traverse',     d: '1:12', g: 'radial-gradient(120% 120% at 70% 20%, #3c5a3e, #16261b)' }
+    { t: 'The lit boardwalk',  d: '1:24', g: 'radial-gradient(120% 120% at 70% 20%, #3c5a3e, #16261b)' },
+    { t: 'Underground river',  d: '0:58', g: 'radial-gradient(120% 120% at 70% 20%, #2f5a52, #14292a)' },
+    { t: 'Into the deep cavern', d: '2:10', g: 'radial-gradient(120% 120% at 70% 20%, #5a4a32, #211a12)' },
+    { t: 'Golden flowstone',   d: '1:46', g: 'radial-gradient(120% 120% at 70% 20%, #46603a, #1b2913)' },
+    { t: 'The five domes',     d: '3:02', g: 'radial-gradient(120% 120% at 70% 20%, #2c3b4f, #121821)' },
+    { t: 'Cathedral chamber',  d: '1:12', g: 'radial-gradient(120% 120% at 70% 20%, #3c5a3e, #16261b)' }
   ];
-  var GAL_PHOTOS = ['Trailhead','Switchbacks','Glacier melt','Old growth','Cliff edge','Base camp','Wildflowers','Summit view']
+  var GAL_PHOTOS = ['Cave mouth','Limestone curtains','The Tempurung River','Calcite flowstone','Stalactite hall','Grand cavern','The five domes','Emerging into light']
     .map(function (c, i) { return { id: 'gal' + i, cap: c }; });
 
   /* KPI sparkline series + colors */
